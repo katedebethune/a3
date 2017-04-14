@@ -51,18 +51,98 @@ public function translateIt($text,$suffix,$option){
 	foreach($words as &$word) {
 		
 		if(is_numeric($word)){
-			dump($word);
+			
 		} else {
-		
-			$word = $word.$suffix;
+			
+			if(strlen($word) < 3 && $option == 'checked'){
+				
+			} else {
+			
+			if($this->startsWithVowel($word)){
+				
+				$word = $this->shiftForVowel($word);
+			} else
+				
+				if($this->doubleConsonant($word)){
+					
+					$word = $this->shiftForDouble($word,$suffix);
+					
+				} else {
+					
+				$word = $this->shiftForSingle($word,$suffix);
+				
+				}
+				
+			}
 		}
 	}
 
 	$translation = implode(" ",$words);
-	return $translation;
+	return strtolower($translation);
 	
 }
+	
+	public function startsWithVowel($word){
+		
+		$vowels = ['a','e','i','o','u'];
+		
+		if(in_array($word{0},$vowels)){
+		
+		return 'true';
+			
+		} 
+		
+	}
+	
+	public function shiftForVowel($word){
+		
+		$newWord = $word.'way';
+		
+		return $newWord;	
+	}
+	
+	
+	public function doubleConsonant($word){
+		
+		$vowels = ['a','e','i','o','u'];
+		
+		if(in_array($word{1},$vowels)){
+		
+		return false;
+			
+		} else {return true;}
+	}
+	
+	
+	public function shiftForDouble($word,$suffix){
+		
+		$arr = str_split($word);
+		
+		array_push($arr,$arr[0]);
+		array_shift($arr);
+		array_push($arr,$arr[0]);
+		array_shift($arr);
+		
+		$newWord = implode("",$arr);
+		$newWord = $newWord.$suffix;
+		
+		return $newWord;
+	}
+	
+	public function shiftForSingle($word,$suffix){
+		
+		$arr = str_split($word);
+		
+		array_push($arr,$arr[0]);
+		array_shift($arr);
+		
+		$newWord = implode("",$arr);
+		$newWord = $newWord.$suffix;
+		
+		return $newWord;
+	}
 }
+
 
 
 
