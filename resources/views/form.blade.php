@@ -46,7 +46,7 @@
 	@if(isset($translateText))  
 		@if($translateText != null)
 				<div class = " container alert alert-success">
-					<h2>Text To Translate: <em>{{ $translateText }}</em></h2>
+					<h2>Translation<br></h2><em>Translation</em>
 				</div>
 
 		@endif
