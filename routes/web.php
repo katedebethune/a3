@@ -11,5 +11,5 @@
 |
 */
 
-Route::get('/translateText', 'TranslateController@translate');
+Route::get('translate/{translateText?}', 'TranslateController@translate');
 Route::get('/', 'DefaultController');

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DefaultController extends Controller
+class TranslateController extends Controller
 {
 
     /**
@@ -13,9 +13,17 @@ class DefaultController extends Controller
 	*/
    public function translate(Request $request) {
 
+	   $this->validate($request, [
+            'translateText' => 'required|min:3|alpha_num'
+        ]);
 	   
-    $translateText = $request->textarea('translateText', null);
-   
+	  
+	   
+	
+    $translateText = $request->input('translateText', null);
+	   
+ 
+	
     if($translateText) {
 			
 		
