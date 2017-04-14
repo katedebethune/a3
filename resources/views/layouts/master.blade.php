@@ -14,7 +14,7 @@
   <div class="container">
   <div class="row">
     <div class="col-sm-6">
-      <h1><a href="#">Pig Latin Translator</a><p class="lead">Tim Mattingly A3</p></h1>
+      <h1><a href="">Pig Latin Translator</a><p class="lead">Tim Mattingly A3</p></h1>
     </div>
   </div>
   </div>
@@ -33,7 +33,7 @@
       </a>
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Home</a></li>
+          <li class="active"><a href="">Home</a></li>
           <li class="divider"></li>
         </ul>
 		<ul class="nav navbar-nav">
